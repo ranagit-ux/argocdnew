@@ -6,7 +6,7 @@
   spec:
     type: ClusterIP
     selector:
-      app: niginx
+      app: nginx
     ports:
       - protocol: TCP
         port: 8000
