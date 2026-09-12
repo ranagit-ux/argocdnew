@@ -22,19 +22,19 @@
         namespace:	gitops-demo
       spec:
  
-        serviceAccountName:  rbacaccount
+        # serviceAccountName:  rbacaccount
         restartPolicy: Always
         containers:
           - image: nginx
             imagePullPolicy: IfNotPresent
             name:	nginx-container
-            command:
-              - sh
-              - -c
-              - |
-                mkdir -p /usr/share/nginx/html/rana
-                echo "Welcome to Rana Application" > /usr/share/nginx/html/rana/index.html
-                nginx -g "daemon off;"
+            # command:
+            #   - sh
+            #   - -c
+            #   - |
+            #     mkdir -p /usr/share/nginx/html/rana
+            #     echo "Welcome to Rana Application" > /usr/share/nginx/html/rana/index.html
+            #     nginx -g "daemon off;"
             # livenessProbe:
             #   httpGet:
             #     path: /
@@ -60,7 +60,7 @@
             #   timeoutSeconds: 2
             #   failureThreshold: 25                 
             # ports:
-            #   - containerPort:	80
+
             # lifecycle:
             #   postStart:
             #     exec:
