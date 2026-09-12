@@ -2,7 +2,7 @@
   kind:	Service
   metadata:	
     name:	dep-service
-    namespace: k8-practice
+    namespace: gitops-demo
   spec:
     type: ClusterIP
     selector:
