@@ -7,7 +7,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: frontend
+      app: prod-frontend
   template:
     metadata:
       labels:
