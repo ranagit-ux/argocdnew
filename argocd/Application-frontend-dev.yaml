@@ -1,23 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-
 metadata:
-  name: frontend
+  name: frontend-dev
   namespace: argocd
-
 spec:
   project: default
-
   source:
     repoURL: https://github.com/ranagit-ux/argocdnew.git
     targetRevision: main
-    path: apps/frontend
-
+    path: environments/dev/frontend
   destination:
     server: https://kubernetes.default.svc
-    namespace: gitops-demo
-
+    namespace: frontend-dev
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
