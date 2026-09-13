@@ -11,10 +11,8 @@ spec:
     path: environments/dev/frontend
   destination:
     server: https://kubernetes.default.svc
-    namespace: frontend-dev
+    namespace: argocd-namespace-dev
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
