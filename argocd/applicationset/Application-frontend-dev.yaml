@@ -3,6 +3,7 @@ kind: ApplicationSet
 metadata:
   name: frontend-environments
   namespace: argocd
+
 spec:
   generators:
     - git:
@@ -10,21 +11,27 @@ spec:
         revision: main
         directories:
           - path: environments/*/frontend
+
   template:
     metadata:
       name: 'frontend-{{path[1]}}'
+
     spec:
       project: default
+
       source:
         repoURL: https://github.com/ranagit-ux/argocdnew.git
         targetRevision: main
         path: '{{path}}'
+
       destination:
         server: https://kubernetes.default.svc
         namespace: 'argocd-namespace-{{path[1]}}'
+
       syncPolicy:
         automated:
           selfHeal: true
           prune: true
+
         syncOptions:
-        - CreateNamespace: true    
+          - CreateNamespace=true
