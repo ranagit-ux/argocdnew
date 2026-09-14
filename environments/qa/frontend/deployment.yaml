@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prod-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: prod-frontend
+  template:
+    metadata:
+      labels:
+        app: prod-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: nginx:1.27
+          ports:
+            - containerPort: 80
